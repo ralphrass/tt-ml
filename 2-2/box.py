@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
+import df as pd
 import scipy.stats as stats
 
 df = pd.read_csv("pesos_alturas_english.csv")

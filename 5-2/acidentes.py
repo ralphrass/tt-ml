@@ -1,4 +1,4 @@
-import pandas as pd
+import df as pd
 import glob
 import numpy as np
 

@@ -1,4 +1,4 @@
-import pandas as pd
+import df as pd
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.cross_validation import train_test_split

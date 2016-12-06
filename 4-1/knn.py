@@ -1,5 +1,5 @@
 import random
-import pandas as pd
+import df as pd
 from sklearn.cross_validation import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import MinMaxScaler

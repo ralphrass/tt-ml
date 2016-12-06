@@ -1,5 +1,5 @@
 import numpy as np
-import pandas as pd
+import df as pd
 from sklearn import tree
 from sklearn.preprocessing import Imputer
 
