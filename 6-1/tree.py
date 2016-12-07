@@ -1,5 +1,5 @@
 import numpy as np
-import df as pd
+import pandas as pd
 from sklearn import tree
 from sklearn.preprocessing import Imputer
 
@@ -14,27 +14,15 @@ base_test.columns = ['age', 'workclass', 'fnlwgt', 'education', 'education-num',
                      'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country',
                      'class']
 
-# base['workclass'].replace('?', np.NaN)
+# print base.dtypes
 
-base['sex'] = base['sex'].astype('category')
-base['workclass'] = base['workclass'].astype('category')
-base['education'] = base['education'].astype('category')
-base['marital-status'] = base['marital-status'].astype('category')
-base['occupation'] = base['occupation'].astype('category')
-base['relationship'] = base['relationship'].astype('category')
-base['race'] = base['race'].astype('category')
-base['class'] = base['class'].astype('category')
-base['native-country'] = base['native-country'].astype('category')
+objects = base.select_dtypes(['object']).columns
 
-base_test['sex'] = base_test['sex'].astype('category')
-base_test['workclass'] = base_test['workclass'].astype('category')
-base_test['education'] = base_test['education'].astype('category')
-base_test['marital-status'] = base_test['marital-status'].astype('category')
-base_test['occupation'] = base_test['occupation'].astype('category')
-base_test['relationship'] = base_test['relationship'].astype('category')
-base_test['race'] = base_test['race'].astype('category')
-base_test['class'] = base_test['class'].astype('category')
-base_test['native-country'] = base_test['native-country'].astype('category')
+for obj in objects:
+    base[obj] = base[obj].astype('category')
+
+for obj in objects:
+    base_test[obj] = base_test[obj].astype('category')
 
 categories = base.select_dtypes(['category']).columns
 base[categories] = base[categories].apply(lambda x: x.cat.codes)
@@ -59,7 +47,7 @@ predictions = clf.predict(X_test)
 total = sum(p == r for p, r in zip(predictions, Y_test))
 print total / float(len(predictions))
 
-print base.isnan().values.any()
+# print base.isnan().values.any()
 
 
 imr = Imputer(missing_values='NaN', strategy='most_frequent', axis=0)

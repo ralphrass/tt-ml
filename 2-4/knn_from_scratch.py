@@ -9,7 +9,7 @@ y = np.array([6.6,3.1,5.7,2.1])
 k = 3
 
 def euclidean(x, y):
-    r = np.sum([(a-b)**2 for a, b in zip(x, y)])
+    r = np.sqrt(np.sum([(a-b)**2 for a, b in zip(x, y)]))
     return r
 
 dist_x = []
