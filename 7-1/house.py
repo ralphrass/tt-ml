@@ -1,4 +1,4 @@
-import df as pd
+import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from sklearn.cross_validation import train_test_split
@@ -20,7 +20,7 @@ clf.fit(X_train, Y_train)
 predictions = clf.predict(X_test)
 all = zip(Y_test, predictions)
 
-print X_train
+print clf.intercept_
 
 diff = sum([abs(p-r) for p, r in all])
 print diff
@@ -30,9 +30,9 @@ X_test_std = std.transform(X_test)
 
 print X_train_std
 
-clf.fit(X_train_std, Y_train)
+clf.fit(X_train, Y_train)
 
-predictions = clf.predict(X_test_std)
+predictions = clf.predict(X_test)
 all = zip(Y_test, predictions)
 
 diff = sum([abs(p-r) for p, r in all])
