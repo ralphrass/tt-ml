@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.preprocessing import Imputer
 import numpy as np
+import matplotlib.pyplot as plt
 
 df = pd.read_json('guaiba.json')
 
@@ -20,3 +21,6 @@ imp.fit([df['altura']])
 altura_trans = preprocessing.scale([df['altura']])
 print np.std(df['altura'])
 print altura_trans.std()
+
+plt.hist(df['altura'])
+plt.show()
