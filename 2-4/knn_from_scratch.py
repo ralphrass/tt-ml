@@ -20,11 +20,15 @@ for idx, linha in iris.iterrows():
 
 xx = [iris.iloc[idx]['c'] for idx, dist in sorted(dist_x, key=lambda a: a[1])][:k]
 
-d = []
+# d = []
+#
+# for classe in iris['c'].unique():
+#     d.append((classe, xx.count(classe)))
+#
+# d = sorted(d, key=lambda a: a[1], reverse=True)
 
-for classe in iris['c'].unique():
-    d.append((classe, xx.count(classe)))
+# print d[0][0]
 
-d = sorted(d, key=lambda a: a[1], reverse=True)
+print sorted([(classe, xx.count(classe)) for classe in iris['c'].unique()], key=lambda a: a[1], reverse=True)[0][0]
 
-print d[0][0]
+
