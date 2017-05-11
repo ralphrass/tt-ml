@@ -73,7 +73,7 @@ for movie in movies:
     #     continue
 
     print movie
-    predictions.append(user_average + soma_numerador / soma_denominador)
+    predictions.append((movie, user_average + soma_numerador / soma_denominador))
     print predictions
     # break
 
